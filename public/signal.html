@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claude 信号灯</title>
+  <link rel="stylesheet" href="signal.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/vendor/three/build/three.module.min.js",
+        "three/addons/": "/vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="view-switch view-switch-floating" data-state="right" role="group" aria-label="切换视图">
+    <span class="view-switch-knob"></span>
+    <a class="view-switch-side view-switch-left" href="/">
+      <span class="view-switch-icon">📊</span>仪表盘
+    </a>
+    <a class="view-switch-side view-switch-right active" href="/signal.html" aria-current="page">
+      <span class="view-switch-icon">🚦</span>信号灯
+    </a>
+  </div>
+
+  <main class="stage" id="stage">
+    <div class="canvas-wrap" id="canvasWrap"></div>
+    <div class="legend">
+      <div class="legend-row"><span class="dot red"></span>红灯 · Claude 空闲</div>
+      <div class="legend-row"><span class="dot yellow"></span>黄灯 · 等待用户授权</div>
+      <div class="legend-row"><span class="dot green"></span>绿灯 · Claude 正在调用</div>
+    </div>
+    <div class="status-text" id="statusText">检测中…</div>
+    <div class="status-sub" id="statusSub">—</div>
+    <div class="hint">拖动可旋转</div>
+  </main>
+
+  <script type="module" src="signal.js"></script>
+</body>
+</html>

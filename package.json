@@ -1,0 +1,54 @@
+{
+  "name": "@haymitch1992/claude-token-monitor",
+  "version": "0.1.0",
+  "description": "本地 Claude Code token 用量与运行状态监控面板：3D 信号灯 + 今日/按天 token 折线图 + 实时事件推送",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "anthropic",
+    "token",
+    "usage",
+    "dashboard",
+    "monitor",
+    "tui",
+    "cli",
+    "sse",
+    "three.js"
+  ],
+  "author": "Haymitch1992",
+  "license": "MIT",
+  "homepage": "https://github.com/Haymitch1992/claude-token-monitor#readme",
+  "bugs": {
+    "url": "https://github.com/Haymitch1992/claude-token-monitor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haymitch1992/claude-token-monitor.git"
+  },
+  "main": "server.js",
+  "bin": {
+    "claude-token-monitor": "./bin/cli.js",
+    "claude-token-monitor-notify": "./bin/notify.js"
+  },
+  "scripts": {
+    "start": "node ./bin/cli.js",
+    "test": "node --test tests/hooks-installer.test.js tests/scanner.test.js tests/server.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "server.js",
+    "lib/",
+    "public/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "chokidar": "^3.6.0",
+    "express": "^4.19.2",
+    "three": "^0.185.0"
+  }
+}

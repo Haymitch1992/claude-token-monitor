@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claude Token 监控面板</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="/vendor/chart.js/chart.umd.min.js"></script>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <h1>Claude Token 监控面板</h1>
+      <div class="topbar-right">
+        <div class="view-switch" data-state="left" role="group" aria-label="切换视图">
+          <span class="view-switch-knob"></span>
+          <a class="view-switch-side view-switch-left active" href="/" aria-current="page">
+            <span class="view-switch-icon">📊</span>仪表盘
+          </a>
+          <a class="view-switch-side view-switch-right" href="/signal.html">
+            <span class="view-switch-icon">🚦</span>信号灯
+          </a>
+        </div>
+        <div class="updated">最近刷新 <span id="updatedAt">—</span></div>
+      </div>
+    </header>
+
+    <section class="status-card" id="statusCard">
+      <div class="status-dot" id="statusDot"></div>
+      <div class="status-text">
+        <div class="status-label" id="statusLabel">检测中…</div>
+        <div class="status-sub" id="statusSub">—</div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric metric-total">
+        <div class="metric-label">今日 Token 总量</div>
+        <div class="metric-value" id="totalAll">0</div>
+        <div class="metric-compare" id="totalCompare">—</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">输入</div>
+        <div class="metric-value" id="totalInput">0</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">输出</div>
+        <div class="metric-value" id="totalOutput">0</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">缓存创建</div>
+        <div class="metric-value" id="totalCacheCreation">0</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">缓存读取</div>
+        <div class="metric-value" id="totalCacheRead">0</div>
+      </div>
+    </section>
+
+    <section class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title" id="chartTitle">最近 7 天按日对比</div>
+        <div class="mini-switch" data-state="right" role="group" aria-label="图表维度">
+          <span class="mini-switch-knob"></span>
+          <button class="mini-switch-side" data-mode="hourly" type="button">按小时</button>
+          <button class="mini-switch-side active" data-mode="daily" type="button">按天</button>
+        </div>
+      </div>
+      <canvas id="usageChart" height="120"></canvas>
+    </section>
+
+    <footer class="foot">
+      数据源 <code>~/.claude/projects/*.jsonl</code> · 运行判定窗口 <span id="windowSeconds">30</span> 秒 · 日均基于最近 7 天非空日
+    </footer>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
