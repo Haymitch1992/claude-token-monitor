@@ -26,6 +26,10 @@
     "url": "git+https://github.com/Haymitch1992/claude-token-monitor.git"
   },
   "main": "server.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "bin": {
     "claude-token-monitor": "./bin/cli.js",
     "claude-token-monitor-notify": "./bin/notify.js"
