@@ -31,8 +31,8 @@
     "access": "public"
   },
   "bin": {
-    "claude-token-monitor": "./bin/cli.js",
-    "claude-token-monitor-notify": "./bin/notify.js"
+    "claude-token-monitor": "bin/cli.js",
+    "claude-token-monitor-notify": "bin/notify.js"
   },
   "scripts": {
     "start": "node ./bin/cli.js",
